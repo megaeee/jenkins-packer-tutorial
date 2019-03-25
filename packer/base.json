@@ -13,7 +13,7 @@
       "zone":      "ru-central1-b",
 
       "image_name":   "debian-9-nginx-{{isotime | clean_image_name}}",
-      "image_family": "debian-9",
+      "image_family": "nginx-9",
       "image_description": "my custom debian with nginx",
 
       "source_image_family": "debian-9",
