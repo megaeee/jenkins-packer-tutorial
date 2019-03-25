@@ -15,13 +15,11 @@ pipeline {
                 sh label: '', script: '/opt/yandex-packer/packer build ./packer/base.json'
             }
         }
-        parallel {
-            stage('Test') {
+        stage('Test') {
+            parallel {
                 steps {
                     echo 'Testing'
                 }
-            }
-            stage('Deploy') {
                 steps {
                     echo 'Deploying'
                 }
