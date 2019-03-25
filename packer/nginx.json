@@ -12,14 +12,14 @@
       "subnet_id": "{{user `subnet_id`}}",
       "zone":      "ru-central1-b",
 
-      "image_name":   "debian-9-nginx-{{isotime | clean_image_name}}",
-      "image_family": "base",
+      "image_name":        "debian-9-nginx-{{isotime | clean_image_name}}",
+      "image_family":      "base",
       "image_description": "my custom debian with nginx",
 
-      "source_image_family": "base",
+      "source_image_family":    "nginx",
       "source_image_folder_id": "{{user `folder_id`}}",
-      "disk_type":           "network-nvme",
-      "ssh_username":        "debian",
+      "disk_type":              "network-nvme",
+      "ssh_username":           "debian",
 
       "use_ipv4_nat": true
     }

@@ -27,7 +27,7 @@
     {
       "type": "shell",
       "inline": [
-        "echo 'installing nginx'",
+        "echo 'kernel update'",
         "until ping -c1 mirror.yandex.ru &>/dev/null; do :; done",
         "sudo apt-get update -y",
         "sleep 10",
