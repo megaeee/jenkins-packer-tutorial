@@ -15,14 +15,16 @@ pipeline {
                 sh label: '', script: '/opt/yandex-packer/packer build ./packer/base.json'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing'
+        parallel {
+            stage('Test') {
+                steps {
+                    echo 'Testing'
+                }
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
+            stage('Deploy') {
+                steps {
+                    echo 'Deploying'
+                }
             }
         }
     }
