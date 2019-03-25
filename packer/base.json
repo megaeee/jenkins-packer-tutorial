@@ -13,7 +13,7 @@
       "zone":      "ru-central1-b",
 
       "image_name":   "debian-9-nginx-{{isotime | clean_image_name}}",
-      "image_family": "nginx-9",
+      "image_family": "base",
       "image_description": "my custom debian with nginx",
 
       "source_image_family": "debian-9",
@@ -28,11 +28,12 @@
       "type": "shell",
       "inline": [
         "echo 'installing nginx'",
-        "until ping -c1 www.google.com &>/dev/null; do :; done",
+        "until ping -c1 mirror.yandex.ru &>/dev/null; do :; done",
         "sudo apt update -y",
         "sleep 10",
+	"export DEBIAN_FRONTEND=noninteractive",
+	"sudo apt install -y linux-image-amd64=4.9+80+deb9u6 linux-image-4.9.0-8-amd64=4.9.130-2",
         "sudo apt install -y nginx",
-        "sudo su -",
         "sudo systemctl enable nginx.service",
         "curl localhost"
       ]
