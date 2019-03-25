@@ -13,7 +13,7 @@
       "zone":      "ru-central1-b",
 
       "image_name":        "debian-9-nginx-{{isotime | clean_image_name}}",
-      "image_family":      "nginx",
+      "image_family":      "django",
       "image_description": "my custom debian with nginx",
 
       "source_image_family":    "base",
@@ -28,14 +28,13 @@
     {
       "type": "shell",
       "inline": [
-        "echo 'installing nginx'",
+        "echo 'installing django'",
         "until ping -c1 mirror.yandex.ru &>/dev/null; do :; done",
         "sudo apt-get update -y",
         "sleep 10",
 	"export DEBIAN_FRONTEND=noninteractive",
-        "sudo apt-get install -y nginx",
-        "sudo systemctl enable nginx.service",
-        "curl localhost"
+        "sudo apt-get install -y install python3-pip",
+	"sudo pip3 install Django"
       ]
     }
   ]
