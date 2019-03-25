@@ -1,5 +1,3 @@
-git 'https://github.com/megaeee/jenkins-packer-tutorial'
-
 pipeline {
     agent any
     options {
