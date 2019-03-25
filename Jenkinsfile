@@ -11,17 +11,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh label: '', script: '/opt/yandex-packer/packer -color=false build ./packer/base.json'
+                sh label: '', script: '/opt/yandex-packer/packer build -color=false ./packer/base.json'
             }
         }
         stage('Test') {
             steps {
                 parallel(
                     a: {
-                        sh label: '', script: '/opt/yandex-packer/packer -color=false build ./packer/nginx.json'
+                        sh label: '', script: '/opt/yandex-packer/packer build -color=false ./packer/nginx.json'
                     },
                     b: {
-                        sh label: '', script: '/opt/yandex-packer/packer -color=false build ./packer/django.json' 
+                        sh label: '', script: '/opt/yandex-packer/packer build -color=false ./packer/django.json' 
                     }
                 )
             }
