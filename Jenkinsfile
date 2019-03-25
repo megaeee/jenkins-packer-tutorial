@@ -19,7 +19,7 @@ pipeline {
             steps {
                 parallel(
                     a: {
-                        echo 'Testing'
+                        sh label: '', script: '/opt/yandex-packer/packer build ./packer/nginx.json'
                     },
                     b: {
                         echo 'Deploying'

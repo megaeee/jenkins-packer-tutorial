@@ -16,7 +16,7 @@
       "image_family": "base",
       "image_description": "my custom debian with nginx",
 
-      "source_image_family": "debian-9",
+      "source_image_family": "base",
       "disk_type":           "network-nvme",
       "ssh_username":        "debian",
 
@@ -32,7 +32,9 @@
         "sudo apt-get update -y",
         "sleep 10",
 	"export DEBIAN_FRONTEND=noninteractive",
-	"sudo apt-get install -y linux-image-amd64=4.9+80+deb9u6 linux-image-4.9.0-8-amd64=4.9.130-2",
+        "sudo apt-get install -y nginx",
+        "sudo systemctl enable nginx.service",
+        "curl localhost"
       ]
     }
   ]
