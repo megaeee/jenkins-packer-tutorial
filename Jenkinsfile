@@ -12,7 +12,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               sh label: '', script: '/opt/packer/packer build ./packer/base.json' 
+               withEnv(['YC_ACCOUNT_KEY_FILE=~/.packer/packer-key.json']) {
+                  sh label: '', script: '/opt/packer/packer build ./packer/base.json'
+               }
             }
         }
         stage('Test') {
