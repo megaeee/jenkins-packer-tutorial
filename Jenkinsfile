@@ -1,3 +1,9 @@
+environment {
+    YC_ACCOUNT_KEY_FILE = "./packer-key.json"
+    YC_FOLDER_ID = "b1g9mev5371kagqd9muk"
+    YC_SUBNET_ID = "e2l67sljle77f206f9gs"
+}
+
 pipeline {
     agent any
     options {
@@ -6,7 +12,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building'
+               sh label: '', script: '/opt/packer/packer build ./packer/base.json' 
             }
         }
         stage('Test') {
