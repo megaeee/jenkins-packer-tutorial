@@ -34,7 +34,7 @@
         "sudo apt install -y nginx",
         "sudo su -",
         "sudo systemctl enable nginx.service",
-        "curl -v localhost"
+        "curl localhost"
       ]
     }
   ]
