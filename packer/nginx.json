@@ -17,6 +17,7 @@
       "image_description": "my custom debian with nginx",
 
       "source_image_family": "base",
+      "source_image_folder_id": "{{user `folder_id`}}",
       "disk_type":           "network-nvme",
       "ssh_username":        "debian",
 
