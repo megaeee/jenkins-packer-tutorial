@@ -16,13 +16,15 @@ pipeline {
             }
         }
         stage('Test') {
-            parallel {
-                steps {
-                    echo 'Testing'
-                }
-                steps {
-                    echo 'Deploying'
-                }
+            steps {
+                parallel(
+                    a: {
+                        echo 'Testing'
+                    },
+                    b: {
+                        echo 'Deploying'
+                    }
+                )
             }
         }
     }
