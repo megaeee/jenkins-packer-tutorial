@@ -1,6 +1,6 @@
 {
   "variables": {
-     "service_account_key_file": "{{env `YC_TOKEN`}}",
+     "service_account_key_file": "{{env `YC_ACCOUNT_KEY_FILE`}}",
      "folder_id": "{{env `YC_FOLDER_ID`}}",
      "subnet_id": "{{env `YC_SUBNET_ID`}}"
   },
