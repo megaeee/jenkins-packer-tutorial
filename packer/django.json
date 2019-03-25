@@ -12,7 +12,7 @@
       "subnet_id": "{{user `subnet_id`}}",
       "zone":      "ru-central1-b",
 
-      "image_name":        "debian-9-nginx-{{isotime | clean_image_name}}",
+      "image_name":        "debian-9-django-{{isotime | clean_image_name}}",
       "image_family":      "django",
       "image_description": "my custom debian with nginx",
 
