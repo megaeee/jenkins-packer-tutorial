@@ -4,9 +4,9 @@ pipeline {
         skipStagesAfterUnstable()
     }
     environment {
-        YC_ACCOUNT_KEY_FILE = "/opt/yandex-packer/packer-key.json"
-        YC_FOLDER_ID = "b1g9mev5371kagqd9muk"
-        YC_SUBNET_ID = "e2l67sljle77f206f9gs"
+        YC_ACCOUNT_KEY_FILE = credentials('YC_ACCOUNT_KEY_FILE')
+        YC_FOLDER_ID = credentials('YC_FOLDER_ID')
+        YC_SUBNET_ID = credentials('YC_SUBNET_ID')
     }
     stages {
         stage('Build') {
