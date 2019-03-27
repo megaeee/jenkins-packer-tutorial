@@ -20,10 +20,10 @@ pipeline {
             steps {
                 parallel(
                     a: {
-                        sh label: '', script: '${env.PACKER_SH} ./packer/nginx.json'
+                        sh label: '', script: "${env.PACKER_SH} ./packer/nginx.json"
                     },
                     b: {
-                        sh label: '', script: '${env.PACKER_SH} ./packer/django.json' 
+                        sh label: '', script: "${env.PACKER_SH} ./packer/django.json" 
                     }
                 )
             }
