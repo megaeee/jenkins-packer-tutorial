@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh label: '', script: '${env.PACKER_SH} ./packer/base.json'
+                sh label: '', script: "${env.PACKER_SH} ./packer/base.json"
             }
         }
         stage('Test') {
