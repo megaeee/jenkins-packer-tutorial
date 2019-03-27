@@ -3,7 +3,7 @@ variable "public_key_path" {
   default = "~/.ssh/id_rsa.pub"
 }
 
-variable "token" {
+variable "service_account_key_file" {
   description = "Yandex Cloud security OAuth token"
 }
 
@@ -18,7 +18,7 @@ variable "cloud_id" {
 
 variable "zone" {
   description = "Yandex Cloud default Zone for provisioned resources"
-  default = "ru-central1-a"
+  default = "ru-central1-b"
 }
 
 
@@ -29,7 +29,14 @@ variable "zones" {
 
 variable "yc_image_family" {
   description = "family"
-  default = "ubuntu-1804-lts"
+
+  type = "map"
+
+  default = {
+    nginx  = "debian-9-nginx"
+    django = "debian-9-django"
+    base   = "debian-9-base"
+  }
 }
 
 variable "cluster_size" {

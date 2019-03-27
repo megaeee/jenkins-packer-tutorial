@@ -3,7 +3,6 @@ output "external_ip_addresses" {
 }
 
 
-
 output "internal_ip_addresses" {
   value = "${local.internal_ips}"
 }
