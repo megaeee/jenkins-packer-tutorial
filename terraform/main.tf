@@ -87,7 +87,7 @@ resource "yandex_compute_instance" "django" {
 }
 
 locals {
-  external_ips = ["${yandex_compute_instance.subnet.*.network_interface.0.nat_ip_address}"]
+  external_ips = ["${yandex_compute_instance.nginx.subnet.*.network_interface.0.nat_ip_address}"]
   internal_ips = ["${yandex_compute_instance.subnet.*.network_interface.0.ip_address}"]
 
 }
