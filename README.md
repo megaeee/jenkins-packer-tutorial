@@ -27,3 +27,5 @@ yc resource-manager folder add-access-binding ${folder_name} --role admin --subj
 * (Для пользователей windows) установите [git-bash](https://gitforwindows.org) и делайте все задания из под него
 * Создайте отдельный форк данного репозитория у себя в аккаунте
 * Сгенерируйте [ssh ключ](https://git-scm.com/book/ru/v1/Git-на-сервере-Создание-открытого-SSH-ключа) для доступа к инстансам и добавьте его к ключам своего GitHub-аккаунта
+* Скачайте [Packer](https://packer.io/downloads)
+* Запросите Packer-провайдер для Яндекс.Облака через [обращение в поддержку](https://console.cloud.yandex.ru/support) 
