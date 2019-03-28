@@ -18,10 +18,10 @@ git clone git@github.com:megaeee/jenkins-packer-tutorial.git
 * Запишите id подсети в которой будете собирать образы, найдя её с помощью `yc vpc subnet list`
 * Создайте сервисного пользователя и назначьте ему права на доступ к своей папке
 ```
-yc iam service-account create --name packer-key
-yc iam key create --service-account-name packer-key -o packer-key.json
-SERVICE_ACCOUNT_ID=$(yc iam service-account get --name packer-key --format json | jq -r .id)
-yc resource-manager folder add-access-binding packer-folder --role admin --subject serviceAccount:$SERVICE_ACCOUNT_ID
+yc iam service-account create --name ${account_name}
+yc iam key create --service-account-name ${account_name} -o ${account_name}.json
+SERVICE_ACCOUNT_ID=$(yc iam service-account get --name ${account_name} --format json | jq -r .id)
+yc resource-manager folder add-access-binding ${folder_name} --role admin --subject serviceAccount:$SERVICE_ACCOUNT_ID
 ```
 * Установите и иницируйте [terraform](https://www.terraform.io/downloads.html)
 * (Для пользователей windows) установите [git-bash](https://gitforwindows.org) и делайте все задания из под него
