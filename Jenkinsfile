@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    options {
-        skipStagesAfterUnstable()
-    }
     environment {
         YC_ACCOUNT_KEY_FILE = credentials('YC_ACCOUNT_KEY_FILE')
         YC_FOLDER_ID = credentials('YC_FOLDER_ID')
@@ -11,18 +8,18 @@ pipeline {
         PACKER_SH = '/opt/yandex-packer/packer build -color=false'
     }
     stages {
-        stage('Build') {
+        stage('Core') {
             steps {
                 sh label: '', script: "${env.PACKER_SH} ./packer/base.json"
             }
         }
-        stage('Test') {
+        stage('Role-Based') {
             steps {
                 parallel(
-                    a: {
+                    nginx: {
                         sh label: '', script: "${env.PACKER_SH} ./packer/nginx.json"
                     },
-                    b: {
+                    django: {
                         sh label: '', script: "${env.PACKER_SH} ./packer/django.json" 
                     }
                 )
