@@ -87,7 +87,12 @@ resource "yandex_compute_instance" "django" {
 }
 
 locals {
-  external_ips = ["${yandex_compute_instance.nginx.subnet.*.network_interface.0.nat_ip_address}"]
-  internal_ips = ["${yandex_compute_instance.subnet.*.network_interface.0.ip_address}"]
-
+  nginx_ips = {
+    internal = ["${yandex_compute_instance.nginx.*.network_interface.0.ip_address}"]
+    external = ["${yandex_compute_instance.nginx.*.network_interface.0.nat_ip_address}"]
+  }
+  django_ips = {
+    internal = ["${yandex_compute_instance.django.*.network_interface.0.ip_address}"]
+    external = ["${yandex_compute_instance.django.*.network_interface.0.nat_ip_address}"]
+  }
 }

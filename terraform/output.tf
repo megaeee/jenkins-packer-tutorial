@@ -1,10 +1,10 @@
-output "external_ip_addresses" {
-  value = "${local.external_ips}"
+output "nginx_ips" {
+  value = "${local.nginx_ips}"
 }
 
 
-output "internal_ip_addresses" {
-  value = "${local.internal_ips}"
+output "django_ips" {
+  value = "${local.django_ips}"
 }
 
 
